@@ -37,6 +37,7 @@
     --accent:#0B6CF6; --accent-press:#0A57CC; --accent-soft:#EAF1FE;
     --go:#2FB45E; --stop:#E24A3B; --slow:#EDA32B;
     --code-bg:#EFEBE1;
+    --bar-1:#FBFAF8; --bar-2:#F3F1EC; --hover:#FFFFFF;
     --font-display:"Bricolage Grotesque",system-ui,sans-serif;
     --font-sans:"Geist","Geist Fallback",system-ui,-apple-system,sans-serif;
     --font-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
@@ -63,7 +64,7 @@
   .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
   .eyebrow{font-family:var(--font-mono);font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
   .mono{font-family:var(--font-mono)}
-  .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:100}
+  .skip{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:100}
   .skip:focus{left:0}
 
   /* ---- buttons ---- */
@@ -73,7 +74,7 @@
   .btn-primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(11,108,246,.3),0 8px 20px -8px rgba(11,108,246,.5)}
   .btn-primary:hover{background:var(--accent-press);transform:translateY(-1px);box-shadow:0 2px 4px rgba(11,108,246,.3),0 12px 26px -8px rgba(11,108,246,.55)}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
-  .btn-ghost:hover{background:#fff;border-color:var(--ink-3);transform:translateY(-1px)}
+  .btn-ghost:hover{background:var(--hover);border-color:var(--ink-3);transform:translateY(-1px)}
   :focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:4px}
 
   /* ---- header ---- */
@@ -110,15 +111,15 @@
   .cmd button.copied{background:var(--go);color:#fff}
 
   /* ---- window + device frames ---- */
-  .win{border-radius:var(--r-xl);background:#fff;border:1px solid var(--line-2);box-shadow:var(--shadow-win);overflow:hidden}
-  .win .bar{height:38px;display:flex;align-items:center;gap:8px;padding:0 16px;background:linear-gradient(#FBFAF8,#F3F1EC);border-bottom:1px solid var(--line)}
+  .win{border-radius:var(--r-xl);background:var(--panel);border:1px solid var(--line-2);box-shadow:var(--shadow-win);overflow:hidden}
+  .win .bar{height:38px;display:flex;align-items:center;gap:8px;padding:0 16px;background:linear-gradient(var(--bar-1),var(--bar-2));border-bottom:1px solid var(--line)}
   .win .bar i{width:11px;height:11px;border-radius:50%;background:#E0DBCF;display:block}
   .win .bar i:nth-child(1){background:#EC6A5E}.win .bar i:nth-child(2){background:#F4BF4F}.win .bar i:nth-child(3){background:#61C454}
   .win .bar .ttl{margin-left:12px;font-size:12.5px;color:var(--ink-3);font-weight:450}
   .win img{width:100%;display:block}
   .hero-media{position:relative}
   .hero-media .win{transform:perspective(1600px) rotateY(-1.5deg) rotateX(.6deg)}
-  .float-chip{position:absolute;left:-14px;bottom:34px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-win);padding:11px 14px;display:flex;align-items:center;gap:11px;max-width:260px}
+  .float-chip{position:absolute;left:-14px;bottom:34px;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-win);padding:11px 14px;display:flex;align-items:center;gap:11px;max-width:260px}
   @media (max-width:620px){.float-chip{display:none}}
   .float-chip .sig{width:30px;height:30px;border-radius:9px;background:var(--stop);display:grid;place-items:center;flex:none}
   .float-chip .sig svg{width:17px;height:17px}
@@ -148,14 +149,14 @@
   .featlist{display:grid;gap:0}
   .feat{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:20px 2px;border-top:1px solid var(--line-2)}
   .feat:last-child{border-bottom:1px solid var(--line-2)}
-  .feat .ic{width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:none;box-shadow:var(--shadow-soft)}
+  .feat .ic{width:40px;height:40px;border-radius:11px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;flex:none;box-shadow:var(--shadow-soft)}
   .feat .ic svg{width:20px;height:20px;color:var(--ink)}
   .feat h3{font-family:var(--font-sans);font-weight:600;font-size:16.5px;letter-spacing:-.01em;margin-bottom:3px}
   .feat p{font-size:14.5px;color:var(--ink-2);line-height:1.5}
   .realism-media{display:grid;gap:18px}
 
   /* route diagram (the memorable move) */
-  .routecard{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--shadow-win);padding:22px;overflow:hidden}
+  .routecard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--shadow-win);padding:22px;overflow:hidden}
   .routecard .rc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
   .routecard .rc-head b{font-family:var(--font-sans);font-weight:600;font-size:14px}
   .routecard .rc-head span{font-family:var(--font-mono);font-size:12px;color:var(--ink-3)}
@@ -171,7 +172,7 @@
   .step .n{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3);letter-spacing:.1em}
   .step h3{font-family:var(--font-display);font-weight:700;font-size:21px;margin:12px 0 9px;letter-spacing:-.02em}
   .step p{font-size:15px;color:var(--ink-2);line-height:1.55}
-  .step p code{font-family:var(--font-mono);font-size:12.5px;background:#EFEBE1;padding:2px 6px;border-radius:5px;color:var(--ink)}
+  .step p code{font-family:var(--font-mono);font-size:12.5px;background:var(--code-bg);padding:2px 6px;border-radius:5px;color:var(--ink)}
 
   /* iphone proof */
   .phones{margin-top:clamp(40px,6vw,60px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,34px);align-items:start}
@@ -196,7 +197,7 @@
   .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;
     padding:22px 2px;font-family:var(--font-sans);font-weight:600;font-size:clamp(16px,2vw,18px);letter-spacing:-.01em;color:var(--ink)}
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary:hover{color:var(--accent)}
+  .faq summary:hover,.faq[open] summary{color:var(--accent)}
   .faq .sign{position:relative;width:18px;height:18px;flex:none}
   .faq .sign::before,.faq .sign::after{content:"";position:absolute;background:var(--ink-3);border-radius:2px;transition:transform .28s var(--ease),background .2s}
   .faq .sign::before{top:8px;left:0;width:18px;height:2px}
@@ -225,6 +226,22 @@
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ---- dark mode — follows the system setting, one token flip ---- */
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#16140F; --paper-2:#1C1A14; --panel:#211E17;
+      --ink:#EFEADF; --ink-2:#B4AC9C; --ink-3:#847C6D;
+      --line:#2E2A20; --line-2:#3A352A;
+      --accent:#3F8BFF; --accent-press:#5A9CFF; --accent-soft:#1F3360;
+      --code-bg:#2A261D; --bar-1:#26231B; --bar-2:#1E1B15; --hover:#2A261D;
+      --shadow-win:0 1px 1px rgba(0,0,0,.45), 0 12px 28px -10px rgba(0,0,0,.6), 0 46px 84px -34px rgba(0,0,0,.66);
+      --shadow-soft:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -14px rgba(0,0,0,.52);
+    }
+    /* keep the primary button's glow readable on a dark canvas */
+    .btn-primary{box-shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -8px rgba(63,139,255,.5)}
+    .btn-primary:hover{box-shadow:0 2px 6px rgba(0,0,0,.45),0 14px 30px -8px rgba(63,139,255,.6)}
+  }
 </style>
 </head>
 <body>
