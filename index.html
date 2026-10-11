@@ -530,15 +530,25 @@
 </footer>
 
 <script>
-  // copy-to-clipboard
+  // copy-to-clipboard, with a graceful fallback when the write is blocked
   document.querySelectorAll('[data-copy]').forEach(function(btn){
+    var label = btn.textContent;
     btn.addEventListener('click', function(){
       var el = document.querySelector(btn.getAttribute('data-copy'));
-      var text = el ? el.textContent.trim() : '';
-      navigator.clipboard && navigator.clipboard.writeText(text).then(function(){
-        var old = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('copied');
-        setTimeout(function(){ btn.textContent = old; btn.classList.remove('copied'); }, 1600);
-      });
+      if(!el) return;
+      var text = el.textContent.trim();
+      function done(ok){
+        btn.textContent = ok ? 'Copied' : 'Press ⌘C';
+        btn.classList.toggle('copied', ok);
+        setTimeout(function(){ btn.textContent = label; btn.classList.remove('copied'); }, 1800);
+      }
+      function selectText(){
+        try{ var r=document.createRange(); r.selectNodeContents(el);
+          var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ selectText(); done(false); });
+      } else { selectText(); done(false); }
     });
   });
 
