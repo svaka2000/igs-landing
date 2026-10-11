@@ -5,7 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>iOS GPS Spoofer — set your iPhone's location from your Mac</title>
 <meta name="description" content="A Mac app that changes your iPhone's GPS with Apple's developer location tools. Jump anywhere, or drive a route on real roads that stops at red lights and keeps to the speed limit. Your real location returns on Stop." />
-<meta name="color-scheme" content="light" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#FAF8F3" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#17150F" media="(prefers-color-scheme: dark)" />
+
+<!-- favicon: the map-pin mark, inline so there's no extra request -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='1.5' y='1.5' width='25' height='25' rx='8' fill='%230B6CF6'/%3E%3Cpath d='M14 7.2c-3 0-5.4 2.3-5.4 5.2 0 3.6 4.5 8 5 8.5.2.2.6.2.8 0 .5-.5 5-4.9 5-8.5 0-2.9-2.4-5.2-5.4-5.2Z' fill='%23fff'/%3E%3Ccircle cx='14' cy='12.3' r='2.1' fill='%230B6CF6'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="assets/og.png" />
+
+<!-- social share card (Open Graph + Twitter). On deploy, set og:url and make og:image an absolute URL. -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="iOS GPS Spoofer" />
+<meta property="og:title" content="iOS GPS Spoofer — put your iPhone anywhere" />
+<meta property="og:description" content="A Mac app that sets your iPhone's location with Apple's developer tools. Jump anywhere, or drive a route on real roads that stops at red lights. Reversible — free and open source." />
+<meta property="og:image" content="assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="iOS GPS Spoofer — put your iPhone anywhere, then make it drive there for real." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="iOS GPS Spoofer — put your iPhone anywhere" />
+<meta name="twitter:description" content="Set your iPhone's location from your Mac, or drive a route on real roads that stops at red lights. Reversible. Free and open source." />
+<meta name="twitter:image" content="assets/og.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -16,6 +36,7 @@
     --line:#E7E2D6; --line-2:#DAD3C4;
     --accent:#0B6CF6; --accent-press:#0A57CC; --accent-soft:#EAF1FE;
     --go:#2FB45E; --stop:#E24A3B; --slow:#EDA32B;
+    --code-bg:#EFEBE1;
     --font-display:"Bricolage Grotesque",system-ui,sans-serif;
     --font-sans:"Geist","Geist Fallback",system-ui,-apple-system,sans-serif;
     --font-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
@@ -168,6 +189,25 @@
   .saf h3{font-family:var(--font-sans);font-weight:600;font-size:16px;margin-bottom:4px}
   .saf p{font-size:14.5px;color:var(--ink-2);line-height:1.52}
 
+  /* faq */
+  .faq-wrap{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .faq-list{margin-top:clamp(32px,5vw,48px);border-top:1px solid var(--line-2);max-width:860px}
+  .faq{border-bottom:1px solid var(--line-2)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    padding:22px 2px;font-family:var(--font-sans);font-weight:600;font-size:clamp(16px,2vw,18px);letter-spacing:-.01em;color:var(--ink)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:hover{color:var(--accent)}
+  .faq .sign{position:relative;width:18px;height:18px;flex:none}
+  .faq .sign::before,.faq .sign::after{content:"";position:absolute;background:var(--ink-3);border-radius:2px;transition:transform .28s var(--ease),background .2s}
+  .faq .sign::before{top:8px;left:0;width:18px;height:2px}
+  .faq .sign::after{left:8px;top:0;width:2px;height:18px}
+  .faq[open] .sign::after{transform:rotate(90deg)}
+  .faq[open] summary .sign::before,.faq[open] summary .sign::after{background:var(--accent)}
+  .faq .ans{padding:0 2px 24px;max-width:68ch;color:var(--ink-2);font-size:15.5px;line-height:1.62}
+  .faq .ans strong{color:var(--ink);font-weight:600}
+  .faq .ans code{font-family:var(--font-mono);font-size:12.5px;background:var(--code-bg);padding:2px 6px;border-radius:5px;color:var(--ink)}
+  @media (prefers-reduced-motion:reduce){.faq .sign::before,.faq .sign::after{transition:none}}
+
   /* final cta */
   .final{text-align:center}
   .final h2{font-size:clamp(32px,5vw,56px);font-weight:800;max-width:16ch;margin-inline:auto}
@@ -204,6 +244,7 @@
       <a class="navlink" href="#realism">The realism engine</a>
       <a class="navlink" href="#how">How it works</a>
       <a class="navlink" href="#iphone">Proof</a>
+      <a class="navlink" href="#faq">FAQ</a>
       <a class="btn btn-primary" href="#get">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Get it
@@ -400,6 +441,44 @@
     </div>
   </div>
 </section>
+
+<!-- FAQ -->
+<div class="faq-wrap">
+<section id="faq" style="padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(64px,9vw,120px)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq">
+        <summary>Is this a jailbreak or a hack?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="ans">No. It uses Apple's <strong>developer location simulation</strong> — the same feature Xcode gives developers to test apps in other places. Your iPhone is never modified and nothing is installed on it. Stop the app, quit it, or restart the phone and the real GPS is instantly back.</div>
+      </details>
+      <details class="faq">
+        <summary>Does my iPhone have to stay connected to the Mac?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="ans">Yes. The Mac feeds the location to the iPhone over the USB cable through Apple's developer channel, so the cable stays plugged in while a spot or a route is playing. Unplug it or press <strong>Stop</strong> and the phone returns to its real location.</div>
+      </details>
+      <details class="faq">
+        <summary>Will every app really see the new location?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="ans">Yes. iOS reports the simulated location system-wide, so Maps, Weather, Find&nbsp;My and third-party apps all read the spot you picked — there's no per-app setup. The iPhone screenshots further up the page are exactly that: the blue dot in Maps, with no Mac in sight.</div>
+      </details>
+      <details class="faq">
+        <summary>Can apps tell the location is simulated?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="ans">Some can. A few apps specifically check for a simulated GPS signal and may flag or limit an account that uses one. That's why this is built for testing and for your own devices — keep it to accounts and hardware you own.</div>
+      </details>
+      <details class="faq">
+        <summary>What do I need to run it?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="ans">A Mac on <strong>macOS 14 Sonoma</strong> or newer, an iPhone or iPad on <strong>iOS&nbsp;17</strong> or newer, and a USB data cable. There's no App Store download and nothing to jailbreak — the app builds on your Mac and connects over the cable.</div>
+      </details>
+      <details class="faq">
+        <summary>How much does it cost?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="ans">Nothing. It's <strong>free and open source</strong>, and it builds from source on your Mac with one line in Terminal. No account, no sign-in, no paid tier — you can read every line of what it does on GitHub.</div>
+      </details>
+    </div>
+  </div>
+</section>
+</div>
 
 <!-- FINAL CTA -->
 <section id="get" class="final">
