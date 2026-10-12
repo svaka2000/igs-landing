@@ -3,29 +3,29 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>iOS GPS Spoofer — set your iPhone's location from your Mac</title>
+<title>AnyWhere™ — set your iPhone's location from your Mac</title>
 <meta name="description" content="A Mac app that changes your iPhone's GPS with Apple's developer location tools. Jump anywhere, or drive a route on real roads that stops at red lights and keeps to the speed limit. Your real location returns on Stop." />
 <meta name="color-scheme" content="light dark" />
 <meta name="theme-color" content="#FAF8F3" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#17150F" media="(prefers-color-scheme: dark)" />
 
 <!-- favicon: the map-pin mark, inline so there's no extra request -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='1.5' y='1.5' width='25' height='25' rx='8' fill='%230B6CF6'/%3E%3Cpath d='M14 7.2c-3 0-5.4 2.3-5.4 5.2 0 3.6 4.5 8 5 8.5.2.2.6.2.8 0 .5-.5 5-4.9 5-8.5 0-2.9-2.4-5.2-5.4-5.2Z' fill='%23fff'/%3E%3Ccircle cx='14' cy='12.3' r='2.1' fill='%230B6CF6'/%3E%3C/svg%3E" />
-<link rel="apple-touch-icon" href="assets/og.png" />
+<link rel="icon" type="image/png" href="data:image/png;base64,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" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <link rel="canonical" href="https://igs-landing-phi.vercel.app/" />
 
 <!-- social share card (Open Graph + Twitter) -->
 <meta property="og:url" content="https://igs-landing-phi.vercel.app/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="iOS GPS Spoofer" />
-<meta property="og:title" content="iOS GPS Spoofer — put your iPhone anywhere" />
+<meta property="og:site_name" content="AnyWhere™" />
+<meta property="og:title" content="AnyWhere™ — put your iPhone anywhere" />
 <meta property="og:description" content="A Mac app that sets your iPhone's location with Apple's developer tools. Jump anywhere, or drive a route on real roads that stops at red lights. Reversible — free and open source." />
 <meta property="og:image" content="https://igs-landing-phi.vercel.app/assets/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="iOS GPS Spoofer — put your iPhone anywhere, then make it drive there for real." />
+<meta property="og:image:alt" content="AnyWhere — put your iPhone anywhere, then make it drive there for real." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="iOS GPS Spoofer — put your iPhone anywhere" />
+<meta name="twitter:title" content="AnyWhere™ — put your iPhone anywhere" />
 <meta name="twitter:description" content="Set your iPhone's location from your Mac, or drive a route on real roads that stops at red lights. Reversible. Free and open source." />
 <meta name="twitter:image" content="https://igs-landing-phi.vercel.app/assets/og.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -85,7 +85,9 @@
   header.nav.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb,var(--paper) 90%,transparent)}
   .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
   .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:-.02em}
-  .brand .pin{width:26px;height:26px;flex:none}
+  .brand .pin{width:30px;height:30px;flex:none;border-radius:7px}
+  .brand .word{display:inline-flex;align-items:flex-start}
+  .brand .tm{font-size:.5em;font-weight:600;margin-left:2px;margin-top:.2em;color:var(--ink-3)}
   .nav-links{display:flex;align-items:center;gap:30px}
   .nav-links a.navlink{font-size:14.5px;color:var(--ink-2);font-weight:450;transition:color .18s}
   .nav-links a.navlink:hover{color:var(--ink)}
@@ -104,6 +106,8 @@
   .hero .reassure .dot{width:7px;height:7px;border-radius:50%;background:var(--go);box-shadow:0 0 0 4px color-mix(in srgb,var(--go) 22%,transparent)}
 
   /* command chip */
+  .cmd-label{margin-top:24px;font-size:13.5px;color:var(--ink-3)}
+  .cmd-label + .cmd{margin-top:8px}
   .cmd{display:flex;align-items:center;gap:12px;margin-top:22px;background:#1F1D19;color:#EDE9DF;border-radius:12px;
     padding:12px 12px 12px 16px;font-family:var(--font-mono);font-size:13px;max-width:560px;box-shadow:var(--shadow-soft)}
   .cmd .prmpt{color:#6EE7A8;user-select:none}
@@ -251,13 +255,9 @@
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="iOS GPS Spoofer — home">
-      <svg class="pin" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="25" height="25" rx="8" fill="#0B6CF6"/>
-        <path d="M14 7.2c-3 0-5.4 2.3-5.4 5.2 0 3.6 4.5 8 5 8.5.2.2.6.2.8 0 .5-.5 5-4.9 5-8.5 0-2.9-2.4-5.2-5.4-5.2Z" fill="#fff"/>
-        <circle cx="14" cy="12.3" r="2.1" fill="#0B6CF6"/>
-      </svg>
-      iOS&nbsp;GPS&nbsp;Spoofer
+    <a class="brand" href="#top" aria-label="AnyWhere — home">
+      <img class="pin" src="assets/anywhere-icon.png" width="30" height="30" alt="" />
+      <span class="word">AnyWhere<span class="tm" aria-hidden="true">™</span></span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a class="navlink" href="#realism">The realism engine</a>
@@ -279,21 +279,22 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow reveal">macOS 14+ &nbsp;·&nbsp; iPhone iOS 17+ &nbsp;·&nbsp; reversible</p>
+      <p class="eyebrow reveal">AnyWhere™ &nbsp;·&nbsp; macOS 14+ &nbsp;·&nbsp; iOS 17+ &nbsp;·&nbsp; reversible</p>
       <h1 class="reveal" style="margin-top:18px">Put your iPhone <span class="u">anywhere</span>. Then make it drive there for real.</h1>
       <p class="lede reveal">A Mac app that changes your iPhone's GPS using Apple's own developer location tools. Jump to any spot in the world, or drive a route on real roads that stops at red lights and keeps to the speed limit. Your real location comes back the moment you press&nbsp;Stop.</p>
       <div class="cta reveal">
-        <a class="btn btn-primary" href="#get">
+        <a class="btn btn-primary" href="https://github.com/renyifan2009-hash/iOS-GPS-Spoofer-V1.2.3/releases/latest">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Install — one line
+          Download for Mac
         </a>
         <a class="btn btn-ghost" href="#realism">See it drive
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
+      <p class="cmd-label reveal">Or build it yourself with one line in Terminal:</p>
       <div class="cmd reveal" role="group" aria-label="Install command">
         <span class="prmpt" aria-hidden="true">$</span>
-        <code id="cmd1">curl -fsSL https://raw.githubusercontent.com/renyifan2009-hash/iOS-GPS-Spoofer-V1.1.1/main/install.sh | bash</code>
+        <code id="cmd1">curl -fsSL https://raw.githubusercontent.com/renyifan2009-hash/iOS-GPS-Spoofer-V1.2.3/main/install.sh | bash</code>
         <button type="button" data-copy="#cmd1" aria-label="Copy install command">Copy</button>
       </div>
       <p class="reassure reveal"><span class="dot" aria-hidden="true"></span> Nothing is installed on the iPhone. It talks to your Mac over the cable.</p>
@@ -301,7 +302,7 @@
 
     <div class="hero-media reveal">
       <div class="win">
-        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="ttl">iOS GPS Spoofer — Route</span></div>
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="ttl">AnyWhere — Route</span></div>
         <img src="assets/route-on-real-roads.png" width="1440" height="692" alt="The Mac app driving a route around Apple Park on real roads. Numbered traffic-light markers sit along the road, and the right panel shows a 6.25-mile lap with four stops." />
       </div>
       <div class="float-chip" aria-hidden="true">
@@ -392,7 +393,7 @@
       <div class="step reveal">
         <p class="n">STEP 01</p>
         <h3>Install on your Mac</h3>
-        <p>Paste one line into Terminal. It downloads the app, builds it, and drops it in your Applications folder. Run <code>curl … | bash</code> and wait for <code>Done!</code></p>
+        <p>Download the app and drag it to Applications. The first time, macOS asks you to confirm it: open <strong>System Settings ▸ Privacy &amp; Security</strong> and click <strong>Open Anyway</strong>. Or paste one line into Terminal and it builds the app for you.</p>
       </div>
       <div class="step reveal">
         <p class="n">STEP 02</p>
@@ -492,7 +493,7 @@
       </details>
       <details class="faq">
         <summary>How much does it cost?<span class="sign" aria-hidden="true"></span></summary>
-        <div class="ans">Nothing. It's <strong>free and open source</strong>, and it builds from source on your Mac with one line in Terminal. No account, no sign-in, no paid tier — you can read every line of what it does on GitHub.</div>
+        <div class="ans">Nothing. It's <strong>free and open source</strong>, and you can download the app or build it from source on your Mac with one line in Terminal. No account, no sign-in, no paid tier — you can read every line of what it does on GitHub.</div>
       </details>
     </div>
   </div>
@@ -503,14 +504,19 @@
 <section id="get" class="final">
   <div class="wrap">
     <p class="eyebrow reveal">Get it</p>
-    <h2 class="reveal" style="margin-top:14px">Open Terminal. Paste one line. Drive to Paris.</h2>
-    <p class="reveal">Free and open source. It builds from source on your Mac — no account, no sign-in.</p>
+    <h2 class="reveal" style="margin-top:14px">Download it. Drive to Paris.</h2>
+    <p class="reveal">Free and open source — no account, no sign-in. Download the app, or build it from source on your Mac with one line.</p>
+    <p class="reveal" style="margin-top:22px"><a class="btn btn-primary" href="https://github.com/renyifan2009-hash/iOS-GPS-Spoofer-V1.2.3/releases/latest">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download for Mac</a></p>
+    <p class="cmd-label reveal">Or paste this into Terminal:</p>
     <div class="cmd reveal" role="group" aria-label="Install command">
       <span class="prmpt" aria-hidden="true">$</span>
-      <code id="cmd2">curl -fsSL https://raw.githubusercontent.com/renyifan2009-hash/iOS-GPS-Spoofer-V1.1.1/main/install.sh | bash</code>
+      <code id="cmd2">curl -fsSL https://raw.githubusercontent.com/renyifan2009-hash/iOS-GPS-Spoofer-V1.2.3/main/install.sh | bash</code>
       <button type="button" data-copy="#cmd2" aria-label="Copy install command">Copy</button>
     </div>
     <p class="req reveal">REQUIRES macOS 14 SONOMA+ · IPHONE OR IPAD ON iOS 17+ · A USB DATA CABLE</p>
+    <p class="req reveal" style="margin-top:10px;text-transform:none;letter-spacing:0">The download isn't from the App Store, so macOS asks you to confirm it once: System Settings ▸ Privacy &amp; Security ▸ Open Anyway.</p>
   </div>
 </section>
 </main>
@@ -518,11 +524,11 @@
 <footer>
   <div class="wrap foot-in">
     <div style="display:flex;align-items:center;gap:10px">
-      <svg class="pin" style="width:22px;height:22px" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="25" height="25" rx="8" fill="#0B6CF6"/><path d="M14 7.2c-3 0-5.4 2.3-5.4 5.2 0 3.6 4.5 8 5 8.5.2.2.6.2.8 0 .5-.5 5-4.9 5-8.5 0-2.9-2.4-5.2-5.4-5.2Z" fill="#fff"/><circle cx="14" cy="12.3" r="2.1" fill="#0B6CF6"/></svg>
+      <img class="pin" style="width:24px;height:24px;border-radius:6px" src="assets/anywhere-icon.png" width="24" height="24" alt="" />
       <span style="color:var(--ink-2)">Built on Apple's developer location simulation. Map data © OpenStreetMap contributors.</span>
     </div>
     <div class="foot-links">
-      <a href="https://github.com/renyifan2009-hash/iOS-GPS-Spoofer-V1.1.1">GitHub</a>
+      <a href="https://github.com/renyifan2009-hash/iOS-GPS-Spoofer-V1.2.3">GitHub</a>
       <a href="#realism">Realism engine</a>
       <a href="#get">Install</a>
     </div>
